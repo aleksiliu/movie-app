@@ -1,0 +1,50 @@
+h4 {
+  font-size: 1.2rem !important;
+}
+
+.wrapper {
+  max-width: 960px;
+  margin: 40px auto;
+}
+
+.movie {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 100px 2fr;
+  grid-template-areas: 
+  "image content";
+  position: relative;
+}
+
+.movies_img {
+  grid-area: image;
+  width: 100px;
+}
+
+.movie_info {
+  grid-area: content;
+  margin-left: 30px;
+}
+
+.more {
+  position: absolute;  
+  right: 0;
+}
+
+.actors {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 30px;
+}
+
+.actor_img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.single_movie {
+  margin-top: 40px;
+}
