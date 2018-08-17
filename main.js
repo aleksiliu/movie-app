@@ -26,6 +26,8 @@ function getMovie() {
  });
 }
 
+getMovie();
+
 function renderMovie(data, movieId) {
   const h2 = document.createElement('h2');
   const h3 = document.createElement('h2');
