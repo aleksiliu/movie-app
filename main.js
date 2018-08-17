@@ -34,7 +34,7 @@ function renderMovie(data, movieId) {
   const single_movie = document.querySelector('.single_movie');
   img.src = `https://image.tmdb.org/t/p/w500${data.poster_path}`;
   if(data.poster_path === null) {
-    img.src = `/img/noImage.png`;
+    img.src = `img/noImage.png`;
   }
   img.classList.add('movies_img');
   h2.classList.add('title');
