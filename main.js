@@ -7,9 +7,16 @@ form.addEventListener("submit", function(e){
   e.preventDefault();
   const input = document.querySelector('input');
   movies_div.innerHTML = '';
-  getSearchData(input.value);
+  getSearchData(input.value)
+    .then(renderMovies);
   input.value = '';
 })
+
+function getSearchData(value) {
+  return fetch(`https://api.themoviedb.org/3/search/movie?api_key=b0994f6029743a2f030a3fed34413897&language=en-US&query=${value}&page=1&include_adult=false`)
+    .then(response => response.json())
+    .then(data => data.results);
+}
 
 function movieSelected(id) {
   sessionStorage.setItem('movieId', id);
@@ -82,19 +89,10 @@ function getActors(movieId) {
  });
 }
 
-function getSearchData(value) {
-  fetch(`https://api.themoviedb.org/3/search/movie?api_key=b0994f6029743a2f030a3fed34413897&language=en-US&query=${value}&page=1&include_adult=false`)
-    .then(response => response.json())
-    .then(data => {
-      if (data.total_results == 0) {
-        movies_div.innerHTML = 'No movies to show, bro. Search entry: ' + value ;
-      } else {
-        renderMovies(data.results);
-      }
-  });
-}
-
 function renderMovies(data) {
+  if (data === undefined || data.length == 0) {
+    movies_div.innerHTML = 'No movies to show, bro.';
+  }
   data.forEach(movie => {
     const container = document.createElement('div');
     const movie_info = document.createElement('div');
@@ -107,9 +105,10 @@ function renderMovies(data) {
     const single_movie = document.querySelector('.single_movie');
     a.appendChild(linkText);
     a.title = "More Details";
-    a.addEventListener("click", function() {
-      movieSelected(movie.id);
-    });
+    a.href = "movie.html" + "/?movieId=" + movie.id;
+    // a.addEventListener("click", function() {
+    //   movieSelected(movie.id);
+    // });
     movie_info.appendChild(a);
     img.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
     if(movie.poster_path === null) {
