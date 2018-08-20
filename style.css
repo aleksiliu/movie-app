@@ -48,3 +48,18 @@ h4 {
 .single_movie {
   margin-top: 40px;
 }
+
+.loader {
+  border: 2px solid #f3f3f3; 
+  border-top: 2px solid #3498db;
+  border-radius: 50%;
+  width: 54px;
+  height: 54px;
+  animation: spinAround .5s infinite linear;
+  margin-left: 10px;
+  display: none;
+}
+
+.active {
+  display: block;
+}

@@ -3,6 +3,8 @@ let id = params.get("movieId");
 const wrapper = document.querySelector('.wrapper');
 const actors = document.querySelector('.actors');
 
+//TEE STATE TÄHÄN
+
 function getMovie(id) {
   fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=b0994f6029743a2f030a3fed34413897&language=en-US`)
   .then(response => response.json())

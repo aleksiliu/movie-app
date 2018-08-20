@@ -1,6 +1,7 @@
 const form = document.querySelector('form');
-const movies_div = document.querySelector('.movies');
+const movies_div = document.querySelector('.movies_container');
 const input = document.querySelector('input');
+const loader = document.querySelector('.loader');
 
 const state = {
   searchTerm: '',
@@ -13,19 +14,23 @@ input.addEventListener('keyup', () => {
 
 form.addEventListener("submit", function(e){
   e.preventDefault();
-  movies_div.innerHTML = '';
   getSearchData(state.searchTerm)
     .then(renderMovies);
   input.value = '';
 })
 
 function getSearchData(value) {
+  loader.classList.add('active');
+  movies_div.innerHTML = '';
   return fetch(`https://api.themoviedb.org/3/search/movie?api_key=b0994f6029743a2f030a3fed34413897&language=en-US&query=${value}&page=1&include_adult=false`)
     .then(response => response.json())
     .then(data => state.results = data.results);
 }
 
 function renderMovies() {
+  loader.classList.remove('active');
+  movies_div.innerHTML = '';
+  // movies_div.appendChild(loader);
   if (state.results === undefined || state.results.length == 0) {
     movies_div.innerHTML = 'No movies to show, bro.';
   }
