@@ -30,7 +30,6 @@ function getSearchData(value) {
 function renderMovies() {
   loader.classList.remove('active');
   movies_div.innerHTML = '';
-  // movies_div.appendChild(loader);
   if (state.results === undefined || state.results.length == 0) {
     movies_div.innerHTML = 'No movies to show, bro.';
   }
