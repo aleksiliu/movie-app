@@ -2,18 +2,92 @@ h4 {
   font-size: 1.2rem !important;
 }
 
+.main_bg {
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  height: 100vh;
+  color: #FFF;
+}
+
+html {
+  background: rgba(44, 44, 84, .9);
+  color: #FFF;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+a {
+  color: #706fd3;
+  text-decoration: none;
+}
+
 .wrapper {
   max-width: 960px;
-  margin: 40px auto;
+  margin: 0 auto;
+  position: relative;
+  top: 50px;
+}
+
+.input {
+  background-color: #fff;
+  border-color: #dbdbdb;
+  color: #363636;
+  box-shadow: inset 0 1px 2px rgba(10,10,10,.1);
+  max-width: 100%;
+  width: 100%;
+  -webkit-appearance: none;
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  box-shadow: none;
+  display: inline-flex;
+  font-size: 1rem;
+  height: 2.25em;
+  justify-content: flex-start;
+  line-height: 1.5;
+  padding-bottom: calc(.375em - 1px);
+  padding-left: calc(.625em - 1px);
+  padding-right: calc(.625em - 1px);
+  padding-top: calc(.375em - 1px);
+  position: relative;
+  vertical-align: top;
 }
 
 .movie {
-  margin-top: 40px;
+  margin: 40px 0 40px 0;
   display: grid;
   grid-template-columns: 100px 2fr;
   grid-template-areas: 
   "image content";
   position: relative;
+}
+
+.rating {
+  grid-area: rating;
+  background-color: rgb(0, 0, 0, 0.3);
+  text-align: center;
+  padding: 10px;
+  color: #ffb142;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.rating_text {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 11px;
+}
+
+.trending_movie {
+  display: grid;
+  grid-template-columns: 100px 2fr 60px;
+  grid-template-areas: 
+  "image content rating";
+  grid-gap: 30px;
+  margin-top: 10px;
+  align-items: center;
+}
+
+.trending_movie_info {
+  grid-area: content;
 }
 
 .movies_img {
@@ -30,9 +104,19 @@ h4 {
   margin-left: 30px;
 }
 
+.movies_container {
+  margin-top: 20px;
+}
+
 .more {
   position: absolute;  
   right: 0;
+}
+
+.trending {
+  position: absolute;
+  bottom: 60px;
+  left: 60px;
 }
 
 .actors {
@@ -40,6 +124,8 @@ h4 {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 30px;
+  list-style-type: none;
+  padding: 0;
 }
 
 .actor_img {
@@ -60,8 +146,8 @@ h4 {
   width: 54px;
   height: 54px;
   animation: spinAround .5s infinite linear;
-  margin-left: 10px;
   display: none;
+  margin: 30px auto;
 }
 
 .active {
