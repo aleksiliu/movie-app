@@ -1,13 +1,13 @@
 let params = (new URL(document.location)).searchParams;
 let id = params.get("movieId");
 const single_movies = document.querySelector('.single_movies');
+const wrapper = document.querySelector('.wrapper');
 const actors = document.querySelector('.actors');
 
 const state = {
   movie: {},
   actors: []
 };
-
 
 function getMovie(id) {
   return fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=b0994f6029743a2f030a3fed34413897&language=en-US`)
@@ -23,7 +23,7 @@ function renderMovie() {
   const h3 = document.createElement('h2');
   const p = document.createElement('p');
   const img = document.createElement('img');
-  const single_movie = document.querySelector('.single_movie');
+  const movie_info = document.querySelector('.movie_info');
   img.src = `https://image.tmdb.org/t/p/w342${state.movie.poster_path}`;
   if(state.movie.poster_path === null) {
     img.src = `img/noImage.png`;
@@ -34,11 +34,11 @@ function renderMovie() {
   h2.innerHTML = state.movie.original_title;
   h3.innerHTML = state.movie.release_date;
   p.innerHTML = state.movie.overview;
-  single_movie.appendChild(img);
-  single_movie.appendChild(h2);
-  single_movie.appendChild(h3);
-  single_movie.appendChild(p);
-  single_movies.appendChild(single_movie);
+  movie_info.appendChild(img);
+  movie_info.appendChild(h2);
+  movie_info.appendChild(h3);
+  movie_info.appendChild(p);
+  wrapper.appendChild(movie_info);
 }
 
 function getActors(id) {
@@ -55,7 +55,6 @@ function renderActors() {
   const ul = document.createElement('ul');
   ul.classList.add('actors');
   cast.forEach(actor => {
-    const single_actor = document.querySelector('.single_actor');
     const li = document.createElement('li');
     const h4 = document.createElement('h4');
     const h5 = document.createElement('h5');
@@ -73,6 +72,6 @@ function renderActors() {
     li.appendChild(h4);
     li.appendChild(h5);
     ul.appendChild(li);
-    single_actor.appendChild(ul);
+    wrapper.appendChild(ul);
   });
 }

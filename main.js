@@ -35,7 +35,7 @@ function renderMovies() {
   }
   state.results.forEach(movie => {
     const container = document.createElement('div');
-    const movie_info = document.createElement('div');
+    const movie_details = document.createElement('div');
     const h2 = document.createElement('h2');
     const h3 = document.createElement('h2');
     const p = document.createElement('p');
@@ -46,7 +46,7 @@ function renderMovies() {
     a.appendChild(linkText);
     a.title = "More Details";
     a.href = "movie.html" + "?movieId=" + movie.id;
-    movie_info.appendChild(a);
+    movie_details.appendChild(a);
     img.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
     if(movie.poster_path === null) {
       img.src = `/img/noImage.png`;
@@ -56,15 +56,15 @@ function renderMovies() {
     a.classList.add('more');
     h2.classList.add('title');
     h3.classList.add('subtitle');
-    movie_info.classList.add('movie_info');
+    movie_details.classList.add('movie_details');
     h2.innerHTML = movie.original_title;
     h3.innerHTML = movie.release_date;
     p.innerHTML = movie.overview;
     container.appendChild(img);
-    movie_info.appendChild(h2);
-    movie_info.appendChild(h3);
-    movie_info.appendChild(p);
-    container.appendChild(movie_info);
+    movie_details.appendChild(h2);
+    movie_details.appendChild(h3);
+    movie_details.appendChild(p);
+    container.appendChild(movie_details);
     movies_div.appendChild(container);
   });
 }

@@ -22,6 +22,10 @@ h4 {
 }
 
 .movie_info {
+  margin-top: 40px;
+}
+
+.movie_details {
   grid-area: content;
   margin-left: 30px;
 }
