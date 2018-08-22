@@ -23,7 +23,8 @@ function renderMovie() {
   const h3 = document.createElement('h2');
   const p = document.createElement('p');
   const img = document.createElement('img');
-  const movie_info = document.querySelector('.movie_info');
+  const movie_info = document.createElement('div');
+  movie_info.classList.add('movie_info');
   img.src = `https://image.tmdb.org/t/p/w342${state.movie.poster_path}`;
   if(state.movie.poster_path === null) {
     img.src = `img/noImage.png`;
@@ -53,6 +54,8 @@ getActors(id)
 function renderActors() {
   const cast = state.actors.slice(0, 6);
   const ul = document.createElement('ul');
+  const movie_actors = document.createElement('div');
+  movie_actors.classList.add('movie_actors');
   ul.classList.add('actors');
   cast.forEach(actor => {
     const li = document.createElement('li');
@@ -72,6 +75,7 @@ function renderActors() {
     li.appendChild(h4);
     li.appendChild(h5);
     ul.appendChild(li);
-    wrapper.appendChild(ul);
+    movie_actors.appendChild(ul);
+    wrapper.appendChild(movie_actors);
   });
 }
