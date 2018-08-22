@@ -20,7 +20,7 @@ getMovie(id)
 
 function renderMovie() {
   const h2 = document.createElement('h2');
-  const h3 = document.createElement('h2');
+  const h3 = document.createElement('h3');
   const p = document.createElement('p');
   const img = document.createElement('img');
   const movie_info = document.createElement('div');
@@ -30,8 +30,6 @@ function renderMovie() {
     img.src = `img/noImage.png`;
   }
   img.classList.add('movies_img');
-  h2.classList.add('title');
-  h3.classList.add('subtitle');
   h2.innerHTML = state.movie.original_title;
   h3.innerHTML = state.movie.release_date;
   p.innerHTML = state.movie.overview;

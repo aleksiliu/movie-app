@@ -28,8 +28,6 @@ function getTrendingData() {
 function renderTrending() {
   const h2 = document.createElement('h2');
   const h3 = document.createElement('h3');
-  h2.classList.add('title');
-  h3.classList.add('subtitle');
   const p = document.createElement('p');
   p.classList.add('rating');
   h2.innerHTML = state.trending.original_title;
