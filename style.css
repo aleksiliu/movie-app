@@ -105,6 +105,9 @@ a {
   padding: 10px 20px;
   position: relative;
   vertical-align: top;
+  -webkit-box-shadow: 0px 2px 30px -4px rgba(0,0,0,0.8);
+  -moz-box-shadow: 0px 2px 30px -4px rgba(0,0,0,0.8);
+  box-shadow: 0px 2px 30px -4px rgba(0,0,0,0.8);
 }
 
 .movie {
