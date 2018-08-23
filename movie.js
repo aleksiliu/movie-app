@@ -3,6 +3,7 @@ let id = params.get("movieId");
 const single_movies = document.querySelector('.single_movies');
 const wrapper = document.querySelector('.wrapper');
 const actors = document.querySelector('.actors');
+const movie = document.querySelector('.movie_container');
 
 const state = {
   movie: {},
@@ -29,8 +30,10 @@ function renderMovie() {
   const p = document.createElement('p');
   const img = document.createElement('img');
   const movie_info = document.createElement('div');
+  const movie_pic = document.createElement('div');
   movie_info.classList.add('movie_info');
-  img.src = `https://image.tmdb.org/t/p/w342${state.movie.poster_path}`;
+  movie_pic.classList.add('movie_pic');
+  img.src = `https://image.tmdb.org/t/p/w500${state.movie.poster_path}`;
   if(state.movie.poster_path === null) {
     img.src = `img/noImage.png`;
   }
@@ -38,11 +41,13 @@ function renderMovie() {
   h2.innerHTML = state.movie.original_title;
   h3.innerHTML = state.movie.release_date;
   p.innerHTML = state.movie.overview;
-  movie_info.appendChild(img);
+  movie_pic.appendChild(img);
   movie_info.appendChild(h2);
   movie_info.appendChild(h3);
   movie_info.appendChild(p);
-  wrapper.appendChild(movie_info);
+  movie.appendChild(movie_info);
+  movie.appendChild(movie_pic);
+  wrapper.appendChild(movie);
 }
 
 function getActors(id) {
@@ -60,25 +65,22 @@ getActors(id)
 function renderActors() {
   const cast = state.actors.slice(0, 6);
   const ul = document.createElement('ul');
+  const h5 = document.createElement('h5');
   const movie_actors = document.createElement('div');
   movie_actors.classList.add('movie_actors');
+  h5.textContent = 'Actors';
+  movie_actors.appendChild(h5);
   ul.classList.add('actors');
   cast.forEach(actor => {
     const li = document.createElement('li');
-    const h4 = document.createElement('h4');
-    const h5 = document.createElement('h5');
+    li.classList.add('actor');
     const img = document.createElement('img');
     img.src = `https://image.tmdb.org/t/p/w185${actor.profile_path}`;
     img.classList.add('actor_img');
-    h4.innerHTML = actor.character;
-    h5.innerHTML = actor.name;
-    h4.classList.add('title');
-    h5.classList.add('subtitle');
     li.appendChild(img);
-    li.appendChild(h4);
-    li.appendChild(h5);
     ul.appendChild(li);
     movie_actors.appendChild(ul);
-    wrapper.appendChild(movie_actors);
+    movie.appendChild(movie_actors);
+    wrapper.appendChild(movie);
   });
 }
