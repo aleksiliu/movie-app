@@ -55,7 +55,6 @@ function renderMovies() {
     a.appendChild(linkText);
     a.title = "More Details";
     a.href = "movie.html" + "?movieId=" + movie.id;
-    movie_details.appendChild(a);
     img.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
     if(movie.poster_path === null) {
       img.src = `/img/noImage.png`;
@@ -73,6 +72,7 @@ function renderMovies() {
     movie_details.appendChild(h2);
     movie_details.appendChild(h3);
     movie_details.appendChild(p);
+    movie_details.appendChild(a);
     container.appendChild(movie_details);
     movies_div.appendChild(container);
   });
