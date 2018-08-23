@@ -40,11 +40,11 @@ function renderTrending() {
   a.href = "movie.html" + "?movieId=" + state.trending.id;
   const img = document.createElement('img');
   img.src = `https://image.tmdb.org/t/p/w500${state.trending.poster_path}`;
-  img.classList.add('movies_img');
+  img.classList.add('movies_img'); // rgba(64, 64, 122, .5),
   document.body.style.background = ` 
   linear-gradient(
-    rgba(64, 64, 122, .7), 
-    rgba(44, 44, 84, .9)
+    rgba(0, 0, 0, .1),  
+    rgba(44, 44, 84, .7)
   ), url('https://image.tmdb.org/t/p/w1280${state.trending.backdrop_path}')`;
   trending_info.appendChild(h2);
   trending_info.appendChild(h3);

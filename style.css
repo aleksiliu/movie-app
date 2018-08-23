@@ -21,6 +21,11 @@ h5 {
   text-transform: uppercase;
 }
 
+.movie_bg {
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  height: 100vh;
+}
 
 .main_bg {
   background-size: cover !important;
@@ -36,7 +41,7 @@ html {
 }
 
 a {
-  color: #706fd3;
+  color: rgb(157, 127, 238);
   text-decoration: none;
 }
 

@@ -19,6 +19,11 @@ getMovie(id)
   .then(renderMovie);
 
 function renderMovie() {
+  document.body.style.background = ` 
+  linear-gradient(
+    rgba(64, 64, 122, .95), 
+    rgba(44, 44, 84, .95)
+  ), url('https://image.tmdb.org/t/p/w1280${state.movie.backdrop_path}')`;
   const h2 = document.createElement('h2');
   const h3 = document.createElement('h3');
   const p = document.createElement('p');
@@ -43,7 +48,10 @@ function renderMovie() {
 function getActors(id) {
   return fetch(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=b0994f6029743a2f030a3fed34413897`)
   .then(response => response.json())
-  .then(data => state.actors = data.cast);
+  .then(data => {
+    const filtered = data.cast.filter(person => person.profile_path !== null);
+    state.actors = filtered;
+  });
 }
 
 getActors(id)
@@ -61,9 +69,6 @@ function renderActors() {
     const h5 = document.createElement('h5');
     const img = document.createElement('img');
     img.src = `https://image.tmdb.org/t/p/w185${actor.profile_path}`;
-    if(actor.profile_path === null) {
-      img.src = `/img/noImage.png`;
-    }
     img.classList.add('actor_img');
     h4.innerHTML = actor.character;
     h5.innerHTML = actor.name;
