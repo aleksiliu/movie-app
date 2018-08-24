@@ -100,15 +100,20 @@ a {
   box-shadow: none;
   display: inline-flex;
   font-size: 1rem;
-  height: 2.25em;
+  height: 3.5em;
   justify-content: flex-start;
   line-height: 1.5;
-  padding: 10px 20px;
   position: relative;
   vertical-align: top;
   -webkit-box-shadow: 0px 2px 30px -4px rgba(0,0,0,0.8);
   -moz-box-shadow: 0px 2px 30px -4px rgba(0,0,0,0.8);
   box-shadow: 0px 2px 30px -4px rgba(0,0,0,0.8);
+  box-sizing: border-box;
+  padding-left: 1.5em;
+}
+
+form {
+  margin: 0 30px;
 }
 
 .movie {

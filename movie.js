@@ -22,8 +22,8 @@ getMovie(id)
 function renderMovie() {
   document.body.style.background = ` 
   linear-gradient(
-    rgba(64, 64, 122, .95), 
-    rgba(44, 44, 84, .95)
+    rgba(64, 64, 122, .85), 
+    rgba(44, 44, 84, .9)
   ), url('https://image.tmdb.org/t/p/w1280${state.movie.backdrop_path}')`;
   const h2 = document.createElement('h2');
   const h3 = document.createElement('h3');
