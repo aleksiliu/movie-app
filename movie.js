@@ -4,6 +4,7 @@ const single_movies = document.querySelector('.single_movies');
 const wrapper = document.querySelector('.wrapper');
 const actors = document.querySelector('.actors');
 const movie = document.querySelector('.movie_container');
+const loader = document.querySelector('.loader');
 
 const state = {
   movie: {},
@@ -11,6 +12,7 @@ const state = {
 };
 
 function getMovie(id) {
+  loader.classList.add('active');
   return fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=b0994f6029743a2f030a3fed34413897&language=en-US`)
   .then(response => response.json())
   .then(data => state.movie = data);
@@ -20,6 +22,7 @@ getMovie(id)
   .then(renderMovie);
 
 function renderMovie() {
+  loader.classList.remove('active');
   document.body.style.background = ` 
   linear-gradient(
     rgba(64, 64, 122, .85), 
