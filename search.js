@@ -14,8 +14,6 @@ input.addEventListener('keyup', () => {
   state.searchTerm = input.value;
 });
 
-
-
 form.addEventListener("submit", function(e){
   e.preventDefault();
   let searchParams = new URLSearchParams(window.location.search);
@@ -40,7 +38,7 @@ function renderMovies() {
   loader.classList.remove('active');
   movies_div.innerHTML = '';
   if (state.results === undefined || state.results.length == 0) {
-    movies_div.innerHTML = 'No movies to show, bro.';
+    movies_div.innerHTML = 'No movies to show, bro.' + state.searchTerm;
   }
   state.results.forEach(movie => {
     const container = document.createElement('div');
