@@ -40,13 +40,12 @@ function renderMovie() {
   const movie_pic = document.createElement('div');
   const a = document.createElement('a');
   const linkText = document.createTextNode("Back");
-  a.classList.add('back');
   a.appendChild(linkText);
   a.title = "More Details";
   if(search === '') {
-    a.href =  'index.html'
+    a.href = 'index.html'
   } else {
-    a.href =  'search.html' + "?search=" + search;
+    a.href = 'search.html' + "?search=" + search;
   }
   movie_info.classList.add('movie_info');
   movie_pic.classList.add('movie_pic');

@@ -75,12 +75,8 @@ html {
 }
 
 a {
-  color: white;
+  color: #74b9ff;
   text-decoration: none;
-}
-
-.back {
-color: #74b9ff;
 }
 
 .wrapper {
@@ -181,6 +177,7 @@ form {
   grid-template-columns: 100px 2fr;
   grid-template-areas: "image content";
   position: relative;
+  color: white;
 }
 
 .trending {
