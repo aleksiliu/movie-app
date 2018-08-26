@@ -5,7 +5,7 @@ let params2 = (new URL(document.location)).searchParams;
 let search = params2.get("search");
 
 const single_movies = document.querySelector('.single_movies');
-const wrapper = document.querySelector('.wrapper');
+const wrapper = document.querySelector('.movie_wrapper');
 const actors = document.querySelector('.actors');
 const movie = document.querySelector('.movie_container');
 const loader = document.querySelector('.loader');

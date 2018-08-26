@@ -32,10 +32,18 @@ h5 {
   text-transform: uppercase;
 }
 
+.movie_wrapper {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
 .movie_bg {
   background-size: cover !important;
   background-repeat: no-repeat !important;
   height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .movie_container {
