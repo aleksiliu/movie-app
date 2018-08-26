@@ -54,7 +54,7 @@ function renderMovies() {
     a.href =  "movie.html" + "?search=" + state.searchTerm + '&' + "movieId=" + movie.id;
     img.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
     if(movie.poster_path === null) {
-      img.src = `/img/noImage.png`;
+      img.src = `img/noImage.png`;
     }
     img.classList.add('movies_img');
     a.classList.add('more');
