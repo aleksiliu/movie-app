@@ -126,6 +126,7 @@ form {
   font-size: 18px;
   line-height: 1em;
   align-self: start;
+  display: inline-block;
 }
 
 .rating_text {

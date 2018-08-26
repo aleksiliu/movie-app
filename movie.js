@@ -40,6 +40,11 @@ function renderMovie() {
   const movie_pic = document.createElement('div');
   const a = document.createElement('a');
   const linkText = document.createTextNode("Back");
+
+  const rating = document.createElement('p');
+  rating.classList.add('rating');
+  rating.innerHTML = `${state.movie.vote_average} <span class="rating_text">Rating</span>`;
+
   a.appendChild(linkText);
   a.title = "More Details";
   if(search === '') {
@@ -61,6 +66,7 @@ function renderMovie() {
   movie_info.appendChild(h2);
   movie_info.appendChild(h3);
   movie_info.appendChild(p);
+  movie_info.appendChild(rating);
   movie.appendChild(movie_info);
   movie.appendChild(movie_pic);
   wrapper.appendChild(a);
