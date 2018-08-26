@@ -178,6 +178,14 @@ form {
   grid-template-areas: "image content";
   position: relative;
   color: white;
+  padding: 20px;
+}
+
+.more:hover {
+  background-color: rgba(0,0,0,0.15);
+  -webkit-box-shadow: 0px 2px 30px -4px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0px 2px 30px -4px rgba(0,0,0,0.2);
+  box-shadow: 0px 2px 30px -4px rgba(0,0,0,0.2);
 }
 
 .trending {
