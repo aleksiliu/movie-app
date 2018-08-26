@@ -102,7 +102,7 @@ function renderActors() {
     img.classList.add('actor_img');
     li.appendChild(img);
     const span = document.createElement('span');
-    span.innerHTML= actor.name;
+    span.innerHTML= ` <strong class="character">${actor.character}</strong> <br> ${actor.name} `;
     span.classList.add('tooltiptext');
     li.appendChild(span);
     ul.appendChild(li);
