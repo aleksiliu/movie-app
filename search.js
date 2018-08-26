@@ -10,17 +10,20 @@ const state = {
   results: []
 };
 
+state.searchTerm = result;
+
 input.addEventListener('keyup', () => {
   state.searchTerm = input.value;
 });
 
 form.addEventListener("submit", function(e){
   e.preventDefault();
-  let searchParams = new URLSearchParams(window.location.search);
-  searchParams.set("search", state.searchTerm);
-  window.location.search = searchParams.toString();
-  getSearchData(state.searchTerm)
-  .then(renderMovies);
+    if (history.pushState) {
+      var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?search=' + state.searchTerm;
+      window.history.pushState({path:newurl},'',newurl);
+    }
+    getSearchData(state.searchTerm)
+    .then(renderMovies);
 });
 
 getSearchData(result)
@@ -52,7 +55,7 @@ function renderMovies() {
     const single_movie = document.querySelector('.single_movie');
     a.appendChild(linkText);
     a.title = "More Details";
-    a.href = "movie.html" + "?movieId=" + movie.id;
+    a.href =  "movie.html" + "?search=" + state.searchTerm + '&' + "movieId=" + movie.id;
     img.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
     if(movie.poster_path === null) {
       img.src = `/img/noImage.png`;

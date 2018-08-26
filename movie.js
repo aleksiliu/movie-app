@@ -1,5 +1,9 @@
 let params = (new URL(document.location)).searchParams;
 let id = params.get("movieId");
+
+let params2 = (new URL(document.location)).searchParams;
+let search = params2.get("search");
+
 const single_movies = document.querySelector('.single_movies');
 const wrapper = document.querySelector('.wrapper');
 const actors = document.querySelector('.actors');
@@ -34,6 +38,15 @@ function renderMovie() {
   const img = document.createElement('img');
   const movie_info = document.createElement('div');
   const movie_pic = document.createElement('div');
+
+
+  const a = document.createElement('a');
+  const linkText = document.createTextNode("Back");
+  a.appendChild(linkText);
+  a.title = "More Details";
+  a.href =  'search.html' + "?search=" + search;
+
+
   movie_info.classList.add('movie_info');
   movie_pic.classList.add('movie_pic');
   img.src = `https://image.tmdb.org/t/p/w500${state.movie.poster_path}`;
@@ -50,6 +63,7 @@ function renderMovie() {
   movie_info.appendChild(p);
   movie.appendChild(movie_info);
   movie.appendChild(movie_pic);
+  wrapper.appendChild(a);
   wrapper.appendChild(movie);
 }
 
