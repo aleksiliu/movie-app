@@ -101,6 +101,10 @@ function renderActors() {
     img.src = `https://image.tmdb.org/t/p/w185${actor.profile_path}`;
     img.classList.add('actor_img');
     li.appendChild(img);
+    const span = document.createElement('span');
+    span.innerHTML= actor.name;
+    span.classList.add('tooltiptext');
+    li.appendChild(span);
     ul.appendChild(li);
     movie_actors.appendChild(ul);
     movie.appendChild(movie_actors);
