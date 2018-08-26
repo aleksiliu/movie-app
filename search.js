@@ -44,24 +44,19 @@ function renderMovies() {
     movies_div.innerHTML = 'No movies to show, bro.' + state.searchTerm;
   }
   state.results.forEach(movie => {
-    const container = document.createElement('div');
     const movie_details = document.createElement('div');
     const h2 = document.createElement('h2');
     const h3 = document.createElement('h3');
     const p = document.createElement('p');
     const img = document.createElement('img');
     const a = document.createElement('a');
-    const linkText = document.createTextNode("More Details ›");
     const single_movie = document.querySelector('.single_movie');
-    a.appendChild(linkText);
-    a.title = "More Details";
     a.href =  "movie.html" + "?search=" + state.searchTerm + '&' + "movieId=" + movie.id;
     img.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
     if(movie.poster_path === null) {
       img.src = `/img/noImage.png`;
     }
     img.classList.add('movies_img');
-    container.classList.add('movie');
     a.classList.add('more');
     h2.classList.add('title');
     h3.classList.add('subtitle');
@@ -69,12 +64,11 @@ function renderMovies() {
     h2.innerHTML = movie.original_title;
     h3.innerHTML = movie.release_date;
     p.innerHTML = movie.overview;
-    container.appendChild(img);
+    a.appendChild(img);
     movie_details.appendChild(h2);
     movie_details.appendChild(h3);
     movie_details.appendChild(p);
-    movie_details.appendChild(a);
-    container.appendChild(movie_details);
-    movies_div.appendChild(container);
+    a.appendChild(movie_details);
+    movies_div.appendChild(a);
   });
 }

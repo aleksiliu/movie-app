@@ -38,15 +38,16 @@ function renderMovie() {
   const img = document.createElement('img');
   const movie_info = document.createElement('div');
   const movie_pic = document.createElement('div');
-
-
   const a = document.createElement('a');
   const linkText = document.createTextNode("Back");
+  a.classList.add('back');
   a.appendChild(linkText);
   a.title = "More Details";
-  a.href =  'search.html' + "?search=" + search;
-
-
+  if(search === '') {
+    a.href =  'index.html'
+  } else {
+    a.href =  'search.html' + "?search=" + search;
+  }
   movie_info.classList.add('movie_info');
   movie_pic.classList.add('movie_pic');
   img.src = `https://image.tmdb.org/t/p/w500${state.movie.poster_path}`;

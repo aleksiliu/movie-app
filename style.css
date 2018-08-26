@@ -75,8 +75,12 @@ html {
 }
 
 a {
-  color: #74b9ff;
+  color: white;
   text-decoration: none;
+}
+
+.back {
+color: #74b9ff;
 }
 
 .wrapper {
@@ -114,15 +118,6 @@ a {
 
 form {
   margin: 0 30px;
-}
-
-.movie {
-  margin: 40px 0 60px 0;
-  display: grid;
-  grid-template-columns: 100px 2fr;
-  grid-template-areas: 
-  "image content";
-  position: relative;
 }
 
 .rating {
@@ -176,11 +171,16 @@ form {
 }
 
 .movies_container {
-  margin-top: 20px;
+  margin: 20px 30px 0 30px;
 }
 
 .more {
   margin-top: 1em;
+  margin: 40px 0 60px 0;
+  display: grid;
+  grid-template-columns: 100px 2fr;
+  grid-template-areas: "image content";
+  position: relative;
 }
 
 .trending {

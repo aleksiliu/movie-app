@@ -37,7 +37,7 @@ function renderTrending() {
   const linkText = document.createTextNode("More Details ›");
   a.appendChild(linkText);
   a.title = "More Details";
-  a.href = "movie.html" + "?movieId=" + state.trending.id;
+  a.href = "movie.html" + "?search=" + '&' + "movieId=" + state.trending.id;
   const img = document.createElement('img');
   img.src = `https://image.tmdb.org/t/p/w500${state.trending.poster_path}`;
   img.classList.add('movies_img'); // rgba(64, 64, 122, .5),
