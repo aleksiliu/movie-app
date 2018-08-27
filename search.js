@@ -1,5 +1,5 @@
 let params = (new URL(document.location)).searchParams;
-let result = params.get("search");
+let result = params.get('search');
 const movies_div = document.querySelector('.movies_container');
 const loader = document.querySelector('.loader');
 const input = document.querySelector('input');
@@ -16,10 +16,10 @@ input.addEventListener('keyup', () => {
   state.searchTerm = input.value;
 });
 
-form.addEventListener("submit", function(e){
+form.addEventListener('submit', function(e){
   e.preventDefault();
     if (history.pushState) {
-      var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?search=' + state.searchTerm;
+      var newurl = window.location.protocol + '//' + window.location.host + window.location.pathname + '?search=' + state.searchTerm;
       window.history.pushState({path:newurl},'',newurl);
     }
     getSearchData(state.searchTerm)
@@ -38,10 +38,11 @@ function getSearchData(value) {
 }
 
 function renderMovies() {
+  input.value = state.searchTerm;
   loader.classList.remove('active');
   movies_div.innerHTML = '';
   if (state.results === undefined || state.results.length == 0) {
-    movies_div.innerHTML = 'No movies to show, bro.' + state.searchTerm;
+    movies_div.innerHTML = 'No movies to show, bro.';
   }
   state.results.forEach(movie => {
     const movie_details = document.createElement('div');
@@ -51,7 +52,7 @@ function renderMovies() {
     const img = document.createElement('img');
     const a = document.createElement('a');
     const single_movie = document.querySelector('.single_movie');
-    a.href =  "movie.html" + "?search=" + state.searchTerm + '&' + "movieId=" + movie.id;
+    a.href =  'movie.html' + '?search=' + state.searchTerm + '&' + 'movieId=' + movie.id;
     img.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
     if(movie.poster_path === null) {
       img.src = `img/noImage.png`;

@@ -10,9 +10,9 @@ const state = {
   trending: undefined 
 };
 
-form.addEventListener("submit", function(e){
+form.addEventListener('submit', function(e){
   e.preventDefault();
-  window.location.href = 'search.html' + "?search=" + state.searchTerm;
+  window.location.href = 'search.html' + '?search=' + state.searchTerm;
 })
 
 input.addEventListener('keyup', () => {
@@ -34,10 +34,10 @@ function renderTrending() {
   h3.innerHTML = state.trending.release_date;
   p.innerHTML = `${state.trending.vote_average} <span class="rating_text">Rating</span>`;
   const a = document.createElement('a');
-  const linkText = document.createTextNode("More Details ›");
+  const linkText = document.createTextNode('More Details ›');
   a.appendChild(linkText);
-  a.title = "More Details";
-  a.href = "movie.html" + "?search=" + '&' + "movieId=" + state.trending.id;
+  a.title = 'More Details';
+  a.href = 'movie.html' + '?search=' + '&' + 'movieId=' + state.trending.id;
   const img = document.createElement('img');
   img.src = `https://image.tmdb.org/t/p/w500${state.trending.poster_path}`;
   img.classList.add('movies_img'); // rgba(64, 64, 122, .5),

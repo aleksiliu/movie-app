@@ -1,8 +1,8 @@
 let params = (new URL(document.location)).searchParams;
-let id = params.get("movieId");
+let id = params.get('movieId');
 
 let params2 = (new URL(document.location)).searchParams;
-let search = params2.get("search");
+let search = params2.get('search');
 
 const single_movies = document.querySelector('.single_movies');
 const wrapper = document.querySelector('.movie_wrapper');
@@ -26,39 +26,37 @@ getMovie(id)
   .then(renderMovie);
 
 function renderMovie() {
-  loader.classList.remove('active');
   document.body.style.background = ` 
   linear-gradient(
     rgba(64, 64, 122, .85), 
     rgba(44, 44, 84, .9)
   ), url('https://image.tmdb.org/t/p/w1280${state.movie.backdrop_path}')`;
-  const h2 = document.createElement('h2');
-  const h3 = document.createElement('h3');
-  const p = document.createElement('p');
+  loader.classList.remove('active');
   const img = document.createElement('img');
-  const movie_info = document.createElement('div');
-  const movie_pic = document.createElement('div');
-  const a = document.createElement('a');
-  const linkText = document.createTextNode("Back");
-
-  const rating = document.createElement('p');
-  rating.classList.add('rating');
-  rating.innerHTML = `${state.movie.vote_average} <span class="rating_text">Rating</span>`;
-
-  a.appendChild(linkText);
-  a.title = "More Details";
-  if(search === '') {
-    a.href = 'index.html'
-  } else {
-    a.href = 'search.html' + "?search=" + search;
-  }
-  movie_info.classList.add('movie_info');
-  movie_pic.classList.add('movie_pic');
   img.src = `https://image.tmdb.org/t/p/w500${state.movie.poster_path}`;
   if(state.movie.poster_path === null) {
     img.src = `img/noImage.png`;
   }
   img.classList.add('movies_img');
+  const h2 = document.createElement('h2');
+  const h3 = document.createElement('h3');
+  const p = document.createElement('p');
+  const movie_info = document.createElement('div');
+  const movie_pic = document.createElement('div');
+  const a = document.createElement('a');
+  const linkText = document.createTextNode('Back');
+  const rating = document.createElement('p');
+  rating.classList.add('rating');
+  rating.innerHTML = `${state.movie.vote_average} <span class="rating_text">Rating</span>`;
+  a.appendChild(linkText);
+  a.title = 'More Details';
+  if(search === '') {
+    a.href = 'index.html'
+  } else {
+    a.href = 'search.html' + '?search=' + search;
+  }
+  movie_info.classList.add('movie_info');
+  movie_pic.classList.add('movie_pic');
   h2.innerHTML = state.movie.original_title;
   h3.innerHTML = state.movie.release_date;
   p.innerHTML = state.movie.overview;
@@ -102,7 +100,7 @@ function renderActors() {
     img.classList.add('actor_img');
     li.appendChild(img);
     const span = document.createElement('span');
-    span.innerHTML= ` <strong class="character">${actor.character}</strong> <br> ${actor.name} `;
+    span.innerHTML= `<strong class="character">${actor.character}</strong> ${actor.name} `;
     span.classList.add('tooltiptext');
     li.appendChild(span);
     ul.appendChild(li);
