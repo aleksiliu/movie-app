@@ -62,17 +62,17 @@ function renderMovie() {
   movie_info.appendChild(h2);
   movie_info.appendChild(h3);
   movie_info.appendChild(p);
-  const trailers = state.movie.videos.results;
-  trailers.forEach(trailer => {
-    if(trailer.type === 'Trailer') {
-      const button = document.createElement('a');
-      const trailer = state.movie.videos.results.filter(trailer => trailer.type === 'Trailer');
-      button.href = 'https://www.youtube.com/watch?v=' + trailer[0].key;
-      button.classList.add('button');
-      button.textContent = 'Watch trailer';
-      movie_info.appendChild(button);
-    }
-  });
+
+  let trailers = state.movie.videos.results.find( trailer => trailer['type'] === 'Trailer');
+  
+  if (trailers) {
+    const button = document.createElement('a');
+    button.href = 'https://www.youtube.com/watch?v=' + trailers.key;
+    button.classList.add('button');
+    button.textContent = 'Watch trailer';
+    movie_info.appendChild(button);
+  }
+
   movie_info.appendChild(rating);
   movie.appendChild(movie_info);
   movie.appendChild(movie_pic);
