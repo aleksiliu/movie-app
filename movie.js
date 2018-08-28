@@ -70,8 +70,7 @@ function renderMovie() {
 }
 
 function renderActors() {
-  let cast = state.movie.credits.cast.filter(person => person.profile_path !== null);
-  cast = state.movie.credits.cast.slice(0, 6);
+  const cast = state.movie.credits.cast.filter(person => person.profile_path !== null).slice(0, 6);
   const ul = document.createElement('ul');
   const h5 = document.createElement('h5');
   const movie_actors = document.createElement('div');
