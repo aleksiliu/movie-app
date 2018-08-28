@@ -285,4 +285,5 @@ form {
 .actor:hover .tooltiptext {
   visibility: visible;
   opacity: 1;
+  word-wrap: break-word;
 }

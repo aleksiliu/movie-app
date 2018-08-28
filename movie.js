@@ -1,8 +1,6 @@
-let params = (new URL(document.location)).searchParams;
-let id = params.get('movieId');
-
-let params2 = (new URL(document.location)).searchParams;
-let search = params2.get('search');
+const params = (new URL(document.location)).searchParams;
+const id = params.get('movieId');
+const search = params.get('search');
 
 const single_movies = document.querySelector('.single_movies');
 const wrapper = document.querySelector('.movie_wrapper');
@@ -11,19 +9,19 @@ const movie = document.querySelector('.movie_container');
 const loader = document.querySelector('.loader');
 
 const state = {
-  movie: {},
-  actors: []
+  movie: undefined
 };
 
-function getMovie(id) {
+function getMovieData(id) {
   loader.classList.add('active');
-  return fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=b0994f6029743a2f030a3fed34413897&language=en-US`)
+  return fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=b0994f6029743a2f030a3fed34413897&language=en-US&append_to_response=credits`)
   .then(response => response.json())
   .then(data => state.movie = data);
 }
 
-getMovie(id)
-  .then(renderMovie);
+getMovieData(id)
+  .then(renderMovie)
+  .then(renderActors);
 
 function renderMovie() {
   document.body.style.background = ` 
@@ -71,20 +69,9 @@ function renderMovie() {
   wrapper.appendChild(movie);
 }
 
-function getActors(id) {
-  return fetch(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=b0994f6029743a2f030a3fed34413897`)
-  .then(response => response.json())
-  .then(data => {
-    const filtered = data.cast.filter(person => person.profile_path !== null);
-    state.actors = filtered;
-  });
-}
-
-getActors(id)
-  .then(renderActors);
-
 function renderActors() {
-  const cast = state.actors.slice(0, 6);
+  let cast = state.movie.credits.cast.filter(person => person.profile_path !== null);
+  cast = state.movie.credits.cast.slice(0, 6);
   const ul = document.createElement('ul');
   const h5 = document.createElement('h5');
   const movie_actors = document.createElement('div');

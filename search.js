@@ -72,4 +72,7 @@ function renderMovies() {
     a.appendChild(movie_details);
     movies_div.appendChild(a);
   });
+  const loadmore = document.createElement('button');
+  loadmore.textContent = 'Load more';
+  movies_div.appendChild(loadmore);
 }
