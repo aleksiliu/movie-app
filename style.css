@@ -124,8 +124,15 @@ form {
   margin: 0 30px;
 }
 
-.rating {
+.trending_movie_rating {
   grid-area: rating;
+}
+
+.trending_movie_pic {
+  grid-area: image;
+}
+
+.rating {
   background-color: rgb(0, 0, 0, 0.2);
   text-align: center;
   padding: 10px;
@@ -149,6 +156,7 @@ form {
   "image content rating";
   grid-gap: 30px;
   margin-top: 10px;
+  color: #FFF;
 }
 
 .back {
@@ -161,7 +169,6 @@ form {
 }
 
 .movies_img {
-  grid-area: image;
   max-width: 100%;
   height: auto;
 }
@@ -230,7 +237,7 @@ form {
 
 .loader {
   border: 2px solid #f3f3f3; 
-  border-top: 2px solid #3498db;
+  border-top: 2px solid #74b9ff;
   border-radius: 50%;
   width: 54px;
   height: 54px;
