@@ -14,7 +14,7 @@ const state = {
 
 function getMovieData(id) {
   loader.classList.add('active');
-  return fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=b0994f6029743a2f030a3fed34413897&language=en-US&append_to_response=credits`)
+  return fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=b0994f6029743a2f030a3fed34413897&language=en-US&append_to_response=credits,videos`)
   .then(response => response.json())
   .then(data => state.movie = data);
 }
@@ -62,6 +62,14 @@ function renderMovie() {
   movie_info.appendChild(h2);
   movie_info.appendChild(h3);
   movie_info.appendChild(p);
+
+  const button = document.createElement('a');
+  const trailer = state.movie.videos.results.filter(trailer => trailer.type === 'Trailer');
+  button.href = 'https://www.youtube.com/watch?v=' + trailer[0].key;
+  button.classList.add('button');
+  button.textContent = 'Watch trailer';
+  movie_info.appendChild(button);
+
   movie_info.appendChild(rating);
   movie.appendChild(movie_info);
   movie.appendChild(movie_pic);

@@ -159,6 +159,15 @@ form {
   color: #FFF;
 }
 
+.button {
+  background-color: #74b9ff;
+  color: #FFF;
+  padding: 15px 20px;
+  border-radius: 2px;
+  display: inline-block;
+  margin: 10px 20px 0 0;
+}
+
 .back {
   display: block;
   margin-bottom: 20px;
