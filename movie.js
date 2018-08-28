@@ -86,8 +86,12 @@ function renderActors() {
     img.classList.add('actor_img');
     li.appendChild(img);
     const span = document.createElement('span');
-    span.innerHTML= `<strong class="character">${actor.character}</strong> ${actor.name} `;
     span.classList.add('tooltiptext');
+    if (actor.character === '') {
+      span.innerHTML = actor.name;
+    } else {
+      span.innerHTML = `<strong class="character">${actor.character}</strong> ${actor.name}`;
+    }
     li.appendChild(span);
     ul.appendChild(li);
     movie_actors.appendChild(ul);
