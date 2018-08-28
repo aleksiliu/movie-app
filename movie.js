@@ -68,6 +68,7 @@ function renderMovie() {
   if (trailers) {
     const button = document.createElement('a');
     button.href = 'https://www.youtube.com/watch?v=' + trailers.key;
+    button.target = '_blank';
     button.classList.add('button');
     button.textContent = 'Watch trailer';
     movie_info.appendChild(button);
