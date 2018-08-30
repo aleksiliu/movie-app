@@ -7,7 +7,8 @@ const form = document.querySelector('form');
 
 const state = {
   searchTerm: '',
-  results: []
+  results: [],
+  number: 1
 };
 
 state.searchTerm = result;
@@ -38,6 +39,7 @@ function getSearchData(value) {
 }
 
 function renderMovies() {
+  state.number += 1;
   input.value = state.searchTerm;
   loader.classList.remove('active');
   movies_div.innerHTML = '';
@@ -72,7 +74,24 @@ function renderMovies() {
     a.appendChild(movie_details);
     movies_div.appendChild(a);
   });
-  // const loadmore = document.createElement('button');
-  // loadmore.textContent = 'Load more';
-  // movies_div.appendChild(loadmore);
+  const loadmore = document.createElement('button');
+  loadmore.textContent = 'Load more';
+  loadmore.classList.add('load');
+  movies_div.appendChild(loadmore);
+  const load = document.querySelector('.load');
+  load.addEventListener('click', function() {
+
+  getMoreMovies(state.searchTerm)
+  .then(renderMovies);
+
+    function getMoreMovies(value) {
+      return fetch(`https://api.themoviedb.org/3/search/movie?api_key=b0994f6029743a2f030a3fed34413897&language=en-US&query=${value}&page=${state.number}&include_adult=false`)
+        .then(response => response.json())
+        .then(function(response) {
+          response.results.forEach(element => {
+            state.results.push(element);
+          });
+      })
+    }
+  });
 }
