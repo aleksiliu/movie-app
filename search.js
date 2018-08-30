@@ -74,7 +74,7 @@ function renderMovies() {
     a.appendChild(movie_details);
     movies_div.appendChild(a);
   });
-  const loadmore = document.createElement('button');
+  const loadmore = document.createElement('div');
   loadmore.textContent = 'Load more';
   loadmore.classList.add('load');
   movies_div.appendChild(loadmore);
@@ -85,6 +85,7 @@ function renderMovies() {
   .then(renderMovies);
 
     function getMoreMovies(value) {
+      loader.classList.add('active');
       return fetch(`https://api.themoviedb.org/3/search/movie?api_key=b0994f6029743a2f030a3fed34413897&language=en-US&query=${value}&page=${state.number}&include_adult=false`)
         .then(response => response.json())
         .then(function(response) {

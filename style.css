@@ -168,6 +168,10 @@ form {
   margin: 10px 20px 0 0;
 }
 
+.button:hover {
+  background-color: #57aafd;
+}
+
 .back {
   display: block;
   margin-bottom: 20px;
@@ -192,18 +196,33 @@ form {
 }
 
 .movies_container {
-  margin: 20px 30px 0 30px;
+  margin: 20px 30px 40px 30px;
+  text-align: center;
+}
+
+.load {
+  background-color: #74b9ff;
+  color: #FFF;
+  padding: 15px 20px;
+  border-radius: 2px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.load:hover {
+  background-color: #57aafd;
 }
 
 .more {
   margin-top: 1em;
-  margin: 40px 0 60px 0;
+  margin: 40px 0 40px 0;
   display: grid;
   grid-template-columns: 100px 2fr;
   grid-template-areas: "image content";
   position: relative;
   color: white;
   padding: 20px;
+  text-align: left;
 }
 
 .more:hover {
