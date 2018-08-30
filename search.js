@@ -39,7 +39,6 @@ function getSearchData(value) {
 }
 
 function renderMovies() {
-  state.number += 1;
   input.value = state.searchTerm;
   loader.classList.remove('active');
   movies_div.innerHTML = '';
@@ -80,10 +79,9 @@ function renderMovies() {
   movies_div.appendChild(loadmore);
   const load = document.querySelector('.load');
   load.addEventListener('click', function() {
-
+  state.number += 1;
   getMoreMovies(state.searchTerm)
   .then(renderMovies);
-
     function getMoreMovies(value) {
       loader.classList.add('active');
       return fetch(`https://api.themoviedb.org/3/search/movie?api_key=b0994f6029743a2f030a3fed34413897&language=en-US&query=${value}&page=${state.number}&include_adult=false`)
