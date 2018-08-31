@@ -43,13 +43,13 @@ function renderMovies() {
   loader.classList.remove('active');
   movies_div.innerHTML = '';
   if (state.results.movie.results === undefined || state.results.movie.results.length == 0) {
-    movies_div.innerHTML = 'No movies to show, bro.';
+    movies_div.innerHTML = '<p>No movies to show, bro.</p>';
   }
 
   const p_results = document.createElement('p');
   p_results.innerHTML = `Total results: ${state.results.movie.total_results}`;
+  p_results.classList.add('results');
   movies_div.appendChild(p_results);
-
 
   state.results.movie.results.forEach(movie => {
     const movie_details = document.createElement('div');

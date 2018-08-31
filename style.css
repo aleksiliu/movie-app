@@ -215,7 +215,7 @@ form {
 
 .more {
   margin-top: 1em;
-  margin: 40px 0 40px 0;
+  margin-bottom: 40px;
   display: grid;
   grid-template-columns: 100px 2fr;
   grid-template-areas: "image content";
@@ -321,4 +321,10 @@ form {
   visibility: visible;
   opacity: 1;
   word-wrap: break-word;
+}
+
+.results {
+  font-size: 1.2rem;
+  font-weight: bold;
+  opacity: 0.5;
 }
