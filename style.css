@@ -377,10 +377,7 @@ form {
     margin-left: 0;
   }
   .movie_details p{
-    max-width: 300px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space:nowrap
+    display: none;
   }
   .movie_details h3{
     margin: 0.5em 0 0.5em 0;
