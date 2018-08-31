@@ -34,7 +34,7 @@ function renderTrending() {
   p.innerHTML = `${state.trending.vote_average} <span class="rating_text">Rating</span>`;
   const img = document.createElement('img');
   img.src = `https://image.tmdb.org/t/p/w185${state.trending.poster_path}`;
-  img.classList.add('movies_img'); // rgba(64, 64, 122, .5),
+  img.classList.add('trending_movie_img'); // rgba(64, 64, 122, .5),
   document.body.style.background = ` 
   linear-gradient(
     rgba(0, 0, 0, .1),  

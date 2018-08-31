@@ -180,6 +180,11 @@ form {
   grid-area: content;
 }
 
+.trending_movie_img { 
+  max-width: 100%;
+  height: auto;
+}
+
 .movies_img {
   max-width: 100%;
   height: auto;
@@ -329,7 +334,7 @@ form {
 }
 
 @media (max-width: 767px) {
-  .movies_img {
+  .trending_movie_img {
     display: none;
   }
   .trending {
@@ -352,5 +357,35 @@ form {
   }
   .trending_movie_info h3 {
     margin: 0.5em 0 0 0;
+  }
+  .more {
+    margin-top: 0;
+    margin-bottom: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: "image" "content";
+    position: relative;
+    grid-gap: 20px;
+    color: white;
+    padding: 20px;
+    text-align: left;
+  }
+  .movie_details h2{
+    font-size: 2rem;
+  }
+  .movie_details {
+    margin-left: 0;
+  }
+  .movie_details p{
+    max-width: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space:nowrap
+  }
+  .movie_details h3{
+    margin: 0.5em 0 0.5em 0;
+  }
+  .results {
+    margin-bottom: 0;
   }
 }
