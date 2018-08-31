@@ -19,7 +19,6 @@ input.addEventListener('keyup', () => {
 });
 
 form.addEventListener('submit', function(e){
-  movies_div.innerHTML = '';
   e.preventDefault();
     if (history.pushState) {
       var newurl = window.location.protocol + '//' + window.location.host + window.location.pathname + '?search=' + state.searchTerm;
@@ -43,9 +42,16 @@ function renderMovies() {
   input.value = state.searchTerm;
   loader.classList.remove('active');
   movies_div.innerHTML = '';
-  if (state.results === undefined || state.results.length == 0) {
+  if (state.results.movie.results === undefined || state.results.movie.results.length == 0) {
     movies_div.innerHTML = 'No movies to show, bro.';
   }
+
+  const p_results = document.createElement('p');
+  p_results.innerHTML = `Total results: ${state.results.movie.total_results}`;
+  console.log(p_results);
+  movies_div.appendChild(p_results);
+
+
   state.results.movie.results.forEach(movie => {
     const movie_details = document.createElement('div');
     const h2 = document.createElement('h2');
@@ -81,7 +87,7 @@ function renderMovies() {
     movies_div.appendChild(loadmore);
     const load = document.querySelector('.load');
     load.addEventListener('click', function() {
-      state.results.movie.page++;
+    state.results.movie.page++;
     getMoreMovies(state.searchTerm)
     .then(renderMovies);
       function getMoreMovies(value) {
