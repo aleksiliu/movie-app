@@ -34,12 +34,14 @@ h5 {
 
 .movie_wrapper {
   max-width: 960px;
+  padding: 40px;
   margin: 0 auto;
 }
 
 .movie_bg {
   background-size: cover !important;
   background-repeat: no-repeat !important;
+  background-position: center center !important;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -384,5 +386,23 @@ form {
   }
   .results {
     margin-bottom: 0;
+  }
+  .movie_container {
+    display: grid;
+    grid-template-areas: 
+    "details"
+    "actors";
+    grid-gap: 20px 50px;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+  .movie_bg {
+    display: block;
+  }
+  .movie_pic {
+    display: none;
+  }
+  .movie_info {
+    margin-top: 20px;
   }
 }
