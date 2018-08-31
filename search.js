@@ -48,7 +48,6 @@ function renderMovies() {
 
   const p_results = document.createElement('p');
   p_results.innerHTML = `Total results: ${state.results.movie.total_results}`;
-  console.log(p_results);
   movies_div.appendChild(p_results);
 
 
