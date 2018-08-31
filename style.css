@@ -249,13 +249,13 @@ form {
 
 .actors {
   margin-top: 10px;
-  display: flex;
   list-style-type: none;
   padding: 0;
 }
 
 .actor {
   margin-right: 15px;
+  margin-bottom: 15px;
 }
 
 .actor_img {
@@ -360,6 +360,9 @@ form {
   .trending_movie_info h3 {
     margin: 0.5em 0 0 0;
   }
+  .rating {
+    margin: 1.5em 0;
+  }
   .more {
     margin-top: 0;
     margin-bottom: 0;
@@ -388,13 +391,8 @@ form {
     margin-bottom: 0;
   }
   .movie_container {
-    display: grid;
-    grid-template-areas: 
-    "details"
-    "actors";
-    grid-gap: 20px 50px;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
+    display: flex;
+    flex-direction: column;
   }
   .movie_bg {
     display: block;
