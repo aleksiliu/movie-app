@@ -132,7 +132,7 @@ form {
 }
 
 .rating {
-  background-color: rgb(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.2);
   text-align: center;
   padding: 10px;
   color: #ffb142;
@@ -329,16 +329,23 @@ form {
 }
 
 @media (max-width: 767px) {
+  .movies_img {
+    display: none;
+  }
   .trending {
     position: absolute;
     bottom: 30px;
     left: 30px;
+  }
+  .trending h5 {
+    padding-bottom: 0;
   }
   .trending_movie {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-areas: "image" "content" "rating";
     grid-gap: 10px;
+    margin-top: 0;
   }
   .trending_movie_info h2 {
     font-size: 2rem;
