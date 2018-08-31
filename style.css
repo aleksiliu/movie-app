@@ -394,9 +394,6 @@ form {
     display: flex;
     flex-direction: column;
   }
-  .movie_bg {
-    display: block;
-  }
   .movie_pic {
     display: none;
   }
