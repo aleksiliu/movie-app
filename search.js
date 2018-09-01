@@ -86,19 +86,20 @@ function renderMovies() {
     movies_div.appendChild(loadmore);
     const load = document.querySelector('.load');
     load.addEventListener('click', function() {
-    state.results.movie.page++;
-    getMoreMovies(state.searchTerm)
-    .then(renderMovies);
-      function getMoreMovies(value) {
-        loader.classList.add('active');
-        return fetch(`https://api.themoviedb.org/3/search/movie?api_key=b0994f6029743a2f030a3fed34413897&language=en-US&query=${value}&page=${state.results.movie.page}&include_adult=false`)
-          .then(response => response.json())
-          .then(function(response) {
-            response.results.forEach(element => {
-              state.results.movie.results.push(element);
-            });
-        })
-      }
+      getMoreMovies(state.searchTerm)
+        .then(renderMovies);
     });
+  }
+
+  function getMoreMovies(value) {
+    loader.classList.add('active');
+    state.results.movie.page++;
+    return fetch(`https://api.themoviedb.org/3/search/movie?api_key=b0994f6029743a2f030a3fed34413897&language=en-US&query=${value}&page=${state.results.movie.page}&include_adult=false`)
+      .then(response => response.json())
+      .then(function(response) {
+        response.results.forEach(element => {
+          state.results.movie.results.push(element);
+        });
+    })
   }
 }
