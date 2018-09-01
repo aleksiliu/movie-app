@@ -391,18 +391,26 @@ form {
     margin-bottom: 0;
   }
   .movie_container {
-    display: flex;
-    flex-direction: column;
+    grid-template-areas: 
+    "picture"
+    "details"
+    "actors";
+    grid-gap: 10px;
+    margin-top: 30px;
+    grid-template-columns: 1fr;
   }
   .movie_actors {
     margin-top: 15px;
   }
   .movie_bg {
-    display: block;
-    height: auto;
+    background: none !important;
+    height: 100%;
   }
   .movie_pic {
-    display: none;
+    max-width: 50%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
   }
   .movie_info {
     margin-top: 20px;
