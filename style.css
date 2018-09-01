@@ -396,6 +396,7 @@ form {
   }
   .movie_bg {
     display: block;
+    height: auto;
   }
   .movie_pic {
     display: none;
