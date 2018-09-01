@@ -394,6 +394,9 @@ form {
     display: flex;
     flex-direction: column;
   }
+  .movie_actors {
+    margin-top: 15px;
+  }
   .movie_bg {
     display: block;
     height: auto;
