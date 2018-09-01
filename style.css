@@ -350,6 +350,7 @@ form {
   .trending_movie {
     display: grid;
     grid-template-columns: 1fr;
+    grid-template-rows: 1fr 50px;
     grid-template-areas: "image" "content" "rating";
     grid-gap: 10px;
     margin-top: 0;
