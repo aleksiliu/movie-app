@@ -59,10 +59,6 @@ h5 {
   word-break: break-all;
 }
 
-.movie_info {
-  grid-area: details;
-}
-
 .movie_pic {
   grid-area: picture;
 }
@@ -195,6 +191,8 @@ form {
 
 .movie_info {
   margin-top: 40px;
+  word-break: break-all;
+  grid-area: details;
 }
 
 .movie_details {
